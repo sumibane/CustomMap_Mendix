@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget
+    id="nagarro.custommaps.CustomMaps"
+    pluginWidget="true"
+    needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+    <name>Custom Maps</name>
+    <description>Custom Maps built with Leaflet JS</description>
+    <icon />
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Markers">
+                <property key="staticLatitude" type="string" required="true">
+                    <caption>Default Map Latitiude</caption>
+                    <description>Decimal number from -90.0 to 90.0.</description>
+                </property>
+                <property key="staticLongitude" type="string" required="true">
+                    <caption>Default Map Longitude</caption>
+                    <description>Decimal number from -90.0 to 90.0.</description>
+                </property>
+                <property key="dynamicMarkers" type="object" isList="true" required="false">
+                    <caption>Marker list</caption>
+                    <description>A list of markers showing dynamic locations on the map.</description>
+                    <properties>
+                        <propertyGroup caption="Locations">
+                            <propertyGroup caption="Location">
+                                <property key="markersDS" type="datasource" isList="true" required="false">
+                                    <caption>Data source</caption>
+                                    <description />
+                                </property>
+                                <property key="latitude" type="attribute" dataSource="markersDS" required="false">
+                                    <caption>Latitude</caption>
+                                    <description>Decimal number from -90.0 to 90.0.</description>
+                                    <attributeTypes>
+                                        <attributeType name="Decimal" />
+                                    </attributeTypes>
+                                </property>
+                                <property key="longitude" type="attribute" dataSource="markersDS" required="false">
+                                    <caption>Longitude</caption>
+                                    <description>Decimal number from -180.0 to 180.0.</description>
+                                    <attributeTypes>
+                                        <attributeType name="Decimal" />
+                                    </attributeTypes>
+                                </property>
+                                <property key="title" type="attribute" dataSource="markersDS" required="false">
+                                    <caption>Title</caption>
+                                    <description>Title displayed when clicking the marker.</description>
+                                    <attributeTypes>
+                                        <attributeType name="String" />
+                                    </attributeTypes>
+                                </property>
+                            </propertyGroup>
+                            <propertyGroup caption="Events">
+                                <property key="onClickAttribute" type="action" dataSource="markersDS" required="false">
+                                    <caption>On click</caption>
+                                    <description />
+                                </property>
+                            </propertyGroup>
+                            <propertyGroup caption="Visualization">
+                                <property key="markerStyleDynamic" type="enumeration" defaultValue="default">
+                                    <caption>Marker style</caption>
+                                    <description />
+                                    <enumerationValues>
+                                        <enumerationValue key="default">Default</enumerationValue>
+                                        <enumerationValue key="image">Image</enumerationValue>
+                                    </enumerationValues>
+                                </property>
+                                <property key="customMarkerDynamic" type="image" required="false">
+                                    <caption>Image</caption>
+                                    <description>Image that replaces the default icon.</description>
+                                </property>
+                            </propertyGroup>
+                        </propertyGroup>
+                    </properties>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>

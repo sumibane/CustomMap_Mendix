@@ -1,0 +1,7 @@
+/*
+Place your custom CSS here
+*/
+/*Custom height for Leaflet Map conatiner*/
+.leaflet-container{
+    height: 100vh;
+}
